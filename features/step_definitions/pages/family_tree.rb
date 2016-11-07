@@ -24,5 +24,24 @@ module Family_Tree
 			welcome = $driver.find_element(:xpath, "//span[text()='Welcome to Family Tree']")
 			fail "welcome title incorrect" unless (welcome.text) == "Welcome to Family Tree"
 		end
+
+		def verify_question(question)
+			sleep 2
+			orphan_q = $driver.find_element(:xpath, "//div[@id='node-578554002-1']//*/span[@id='node-question']")
+			fail "question not displayed" unless (orphan_q.text).include? "#{question}"
+		end
+
+		def click_response(answer)
+			sleep 2
+			response = $driver.find_element(:xpath, "//a[contains(text(), '#{answer}')]")
+			response.click
+		end
+
+		def verify_screen(screen_title)
+			sleep 5
+			heading = $driver.find_element(:xpath, "//div[@id='node-578554002-2']//*/span[@id='node-title']")
+			puts heading.text
+			fail "title text incorrect" unless (heading.text).include? "#{screen_title}"
+		end
 	end
 end
