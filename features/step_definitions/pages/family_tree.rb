@@ -43,5 +43,12 @@ module Family_Tree
 			puts heading.text
 			fail "title text incorrect" unless (heading.text).include? "#{screen_title}"
 		end
+
+		def verify_response(response)
+			sleep 5
+			answer = $driver.find_element(:xpath, "//div[@id='node-578554002-2']//*/div[@class='content-answer']")
+			puts answer.text
+			fail "response text incorrect" unless (answer.text).include? "#{response}"
+		end
 	end
 end

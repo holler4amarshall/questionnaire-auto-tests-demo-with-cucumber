@@ -13,11 +13,11 @@ Scenario: orphan or state dependent - yes
 	And I see the "Were you an orphan" question
 	When I answer "Yes"
 	Then I am redirected to the "Orphaned or state dependent" screen
-	And I see the "orphan" response
+	And I see the "answer our questions at step 4" response
 
 
 Scenario: orphan or state dependent - no
-	Given I see the "orphan or state dependent" question
+	Given I see the "Were you an orphan" question
 	When I answer "No"
 	Then I am redirected to the "Parental status" screen
 	And I see the "parents alive and married" question

@@ -24,8 +24,8 @@ Then(/^I am redirected to the "([^"]*)" screen$/) do |screen_title|
   Family_Tree.verify_screen(screen_title)
 end
 
-Then(/^I see the "([^"]*)" response$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I see the "([^"]*)" response$/) do |response|
+  Family_Tree.verify_response(response)
 end
 
 Given(/^I answered No to orphan question$/) do
