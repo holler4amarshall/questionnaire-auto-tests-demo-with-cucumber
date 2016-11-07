@@ -1,5 +1,5 @@
 
-module FAMILY_TREE
+module Family_Tree
 
 	class << self
 
@@ -13,13 +13,16 @@ module FAMILY_TREE
 
 
 		def verify_family_tree_title
-			title = $driver.find_element(:id, "title")
-			fail "#{title} is incorrect" unless title == "parental information"
+			sleep 2
+			heading = $driver.find_element(:id, "title")
+			fail "title text incorrect" unless (heading.text) == "parental information"
 		end
 
 
 		def verify_welcome_title
-			$driver.find_element(:xpath, ".//span[@id='node-title'][text()='Welcome to Family Tree']")
+			sleep 2
+			welcome = $driver.find_element(:xpath, "//span[text()='Welcome to Family Tree']")
+			fail "welcome title incorrect" unless (welcome.text) == "Welcome to Family Tree"
 		end
 	end
 end

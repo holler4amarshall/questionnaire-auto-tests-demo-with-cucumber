@@ -2,14 +2,14 @@ require 'selenium-webdriver'
 require 'page-object'
 require_relative 'pages/family_tree'
 
-
+@wip
 Given(/^I open the family tree questionnaire$/) do
-  family_tree.open_family_tree_questionnaire
-  family_tree.verify_family_tree_title
+  Family_Tree.open_family_tree_quesionnaire
+  Family_Tree.verify_family_tree_title
 end
-
+@wip
 Given(/^I see the welcome message$/) do
-  family_tree.verify_welcome_title
+  Family_Tree.verify_welcome_title
 end
 
 Given(/^I see the "([^"]*)" question$/) do |arg1|
@@ -25,10 +25,6 @@ Then(/^I am redirected to the "([^"]*)" screen$/) do |arg1|
 end
 
 Then(/^I see the "([^"]*)" response$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^I see the "([^"]*)" question$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
 

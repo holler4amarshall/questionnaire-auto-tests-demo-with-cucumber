@@ -9,6 +9,7 @@ Background:
 
 
 Scenario: orphan or state dependent - yes
+	Given I see the welcome message
 	Given I see the "orphan or state dependent" question
 	When I answer "Yes"
 	Then I am redirected to the "orphan" screen
