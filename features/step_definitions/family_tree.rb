@@ -1,14 +1,15 @@
 require 'selenium-webdriver'
 require 'page-object'
-require_relative ''
+require_relative 'pages/family_tree'
 
 
 Given(/^I open the family tree questionnaire$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  family_tree.open_family_tree_questionnaire
+  family_tree.verify_family_tree_title
 end
 
 Given(/^I see the welcome message$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  family_tree.verify_welcome_title
 end
 
 Given(/^I see the "([^"]*)" question$/) do |arg1|
