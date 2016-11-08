@@ -12,7 +12,7 @@ Scenario: orphan or state dependent - yes
 	Given I see the "Were you an orphan" question
 	When I answer "Yes"
 	Then I am redirected to the "Orphaned or state dependent" screen
-	And I see the "step 4" response
+	And I skip "step 4" form questions
 
 
 Scenario: orphan or state dependent - no
@@ -29,7 +29,7 @@ Scenario: parents alive and married - yes
 	And I see the "parents still alive and married" question
 	When I answer "Yes"
 	Then I am redirected to the "Living married birth parents" screen
-	And I see the "married birth mother and birth father" response
+	And I see "married birth mother and birth father" form questions
 
 
 Scenario: parents alive and married - no
@@ -52,14 +52,14 @@ Scenario: Divorced not remarried
 	Given I answered Divorced to the divorced or widowed question
 	Then I see the "remarried?" question
 	When I answer "No"
-	Then I see the "primary divorced/separated single parent" response
+	Then I see "primary divorced/separated single parent" form questions
 
 
 Scenario: Divorced and remarried
 	Given I answered Divorced to the divorced or widowed question
 	Then I see the "remarried?" question
 	When I answer "Yes"
-	Then I see the "primary divorced/separated parent & step parent" response
+	Then I see "primary divorced/separated parent & step parent" form questions
 
 
 Scenario: Widowed
@@ -74,11 +74,11 @@ Scenario: Widowed not remarried
 	Given I answered Widowed to the divorced or widowed question
 	Then I see the "widowed parent get remarried?" question
 	When I answer "No"
-	Then I see the "single widowed parent" response
+	Then I see "single widowed parent" form questions
 
 
 Scenario: Widowed and remarried
 	Given I answered Widowed to the divorced or widowed question
 	Then I see the "widowed parent get remarried?" question
 	When I answer "Yes"
-	Then I see the "widowed parent and your step parent" response
+	Then I see "widowed parent and your step parent" form questions

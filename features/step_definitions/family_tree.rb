@@ -25,7 +25,7 @@ Then(/^I am redirected to the "([^"]*)" screen$/) do |screen_title|
   Family_Tree.verify_screen(screen_title)
 end
 
-Then(/^I see the "([^"]*)" response$/) do |response|
+Then(/^I (?:skip|see) "([^"]*)" form questions$/) do |response|
   Family_Tree.verify_response(response)
 end
 
