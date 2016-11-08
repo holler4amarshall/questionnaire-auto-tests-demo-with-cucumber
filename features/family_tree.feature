@@ -52,14 +52,14 @@ Scenario: Divorced not remarried
 	Given I answered Divorced to the divorced or widowed question
 	Then I see the "remarried?" question
 	When I answer "No"
-	Then I am redirected to the "Primary parents divorced and single" response
+	Then I see the "primary divorced/separated single parent" response
 
-@wip
+
 Scenario: Divorced and remarried
-	Given I answered "Divorced" to the divorced or widowed question
+	Given I answered Divorced to the divorced or widowed question
 	Then I see the "remarried?" question
 	When I answer "Yes"
-	Then I am redirected to the "Primary parents divorced with step parent" response
+	Then I see the "primary divorced/separated parent & step parent" response
 
 
 Scenario: Widowed
@@ -67,18 +67,18 @@ Scenario: Widowed
 	And I see the "divorced/separated or widowed" question
 	When I answer "Widowed"
 	Then I am redirected to the "Widowed parent" screen
-	And I see the "Widowed parent remarried" question
+	And I see the "widowed parent get remarried?" question
 
 
 Scenario: Widowed not remarried
-	Given I answered "Widowed" to the divorced or widowed question
-	Then I see the "remarried?" question
+	Given I answered Widowed to the divorced or widowed question
+	Then I see the "widowed parent get remarried?" question
 	When I answer "No"
-	Then I am redirected to the "Widowed parent and single" response
+	Then I see the "single widowed parent" response
 
 
 Scenario: Widowed and remarried
-	Given I answered "Widowed" to the divorced or widowed question
-	Then I see the "remarried?" question
+	Given I answered Widowed to the divorced or widowed question
+	Then I see the "widowed parent get remarried?" question
 	When I answer "Yes"
-	Then I am redirected to the "Widowed parent with step parent" response
+	Then I see the "widowed parent and your step parent" response

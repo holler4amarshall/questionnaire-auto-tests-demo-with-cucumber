@@ -1,7 +1,7 @@
 require 'selenium-webdriver'
 require 'page-object'
 require_relative 'pages/family_tree'
-require_relative 'pages/parental_status'
+#require_relative 'pages/parental_status'
 
 
 Given(/^I open the family tree questionnaire$/) do
@@ -20,9 +20,6 @@ end
 When(/^I answer "([^"]*)"$/) do |response|
   Family_Tree.click_response(response)
 end
-
-
-
 
 Then(/^I am redirected to the "([^"]*)" screen$/) do |screen_title|
   Family_Tree.verify_screen(screen_title)
@@ -68,4 +65,14 @@ Given (/^I answered Divorced to the divorced or widowed question$/) do
     Then I am redirected to the "Primary parent - parents divorced/separated" screen
     }
 end
+
+Given(/^I answered Widowed to the divorced or widowed question$/) do
+  steps %{
+    Given I answered No to parents alive and married question
+    And I see the "divorced/separated or widowed" question
+    When I answer "Widowed"
+    Then I am redirected to the "Widowed parent" screen
+  }
+end
+
 
