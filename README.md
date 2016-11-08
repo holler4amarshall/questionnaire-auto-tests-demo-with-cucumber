@@ -47,5 +47,5 @@ An alternative approach could have been taken, where cucumber was not used, in o
 
 4) My Zingtree solution focusses on the various definitions of a parent, but does not, however, present the options at a single "step 4". I would build this differently if doing this project again. Especially, I would focus on improving the usability, design and workflow of the questions/form. Ideally, this would be presented as a Single Page Application, and the fields to be populated for the required parents should appear dynamically at Step 4. Additionally, please note error where the solution GOES TO step 4 for orphans, instead of skipping step 4. 
 
-5) As per above, there is an error in the cucumber feature files, whereby any orphans are directed TO step 4, instead of skipping step 4. 
+5) As per above, there was an error in the cucumber feature files, whereby any orphans are directed TO step 4, instead of skipping step 4. This was corrected in the latest commit, but wasn't included in the original report PDF in email. 
 
