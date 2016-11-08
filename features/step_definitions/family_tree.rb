@@ -28,8 +28,14 @@ Then(/^I see the "([^"]*)" response$/) do |response|
   Family_Tree.verify_response(response)
 end
 
-Given(/^I answered No to orphan question$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^I answered "([^"]*)" to "([^"]*)" question$/) do |response, question|
+    Family_Tree.node_id(question)
+    screen_title = @screen_title
+    steps %{
+      And I see the "#{question}" question
+      Then I answer "#{response}"
+      And I am redirected to the "#{screen_title}" screen
+  }
 end
 
 Given(/^I answered "([^"]*)" to parents alive and married question$/) do |arg1|

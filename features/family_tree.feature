@@ -20,27 +20,29 @@ Scenario: orphan or state dependent - no
 	Given I see the "Were you an orphan" question
 	When I answer "No"
 	Then I am redirected to the "Parental status" screen
-	And I see the "parents alive and married" question
+	And I see the "parents still alive and married" question
+	When I answer "Yes"
+	Then I am redirected to the "Living married birth parents" screen
 
 
 Scenario: parents alive and married - yes 
-	Given I answered No to orphan question
-	And I see the "parents alive and married" question
+	Given I answered "No" to "Were you an orphan" question
+	And I see the "parents still alive and married" question
 	When I answer "Yes"
 	Then I am redirected to the "Living married birth parents" screen
-	And I see the "Living married birth parents" response
+	And I see the "married birth mother and birth father" response
 
 
 Scenario: parents alive and married - no
-	Given I answered No to orphan question
-	And I see the "parents alive and married" question
+	Given I answered "No" to "Were you an orphan" question
+	And I see the "parents still alive and married" question
 	When I answer "No"
 	Then I am redirected to the "Birth parents not married and alive" screen
 	And I see the "Divorced or widowed" question
 
 
 Scenario: Divorced or Separated
-	Given I answered "No" to parents alive and married question
+	Given I answered "No" to "parents alive and married" question
 	And I see the "divorced or widowed" question
 	When I answer "Divorced"
 	Then I am redirected to the "Primary parents divorced" screen

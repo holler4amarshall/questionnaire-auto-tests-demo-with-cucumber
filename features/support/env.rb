@@ -5,7 +5,7 @@ require 'pry'
 #require 'pretty_face'
 
 DEFAULT_TIMEOUT = 10
-BROWSER = :chrome
+BROWSER = :safari
 
 driver = Selenium::WebDriver.for BROWSER
 $driver = driver
