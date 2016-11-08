@@ -7,13 +7,12 @@ Background:
 	Given I open the family tree questionnaire
 	And I see the welcome message
 
-
+@wip
 Scenario: orphan or state dependent - yes
-	Given I see the welcome message
-	And I see the "Were you an orphan" question
+	Given I see the "Were you an orphan" question
 	When I answer "Yes"
 	Then I am redirected to the "Orphaned or state dependent" screen
-	And I see the "answer our questions at step 4" response
+	And I see the "step 4" response
 
 
 Scenario: orphan or state dependent - no
@@ -26,7 +25,7 @@ Scenario: orphan or state dependent - no
 
 
 Scenario: parents alive and married - yes 
-	Given I answered "No" to "Were you an orphan" question
+	Given I answered No to Were you an orphan question
 	And I see the "parents still alive and married" question
 	When I answer "Yes"
 	Then I am redirected to the "Living married birth parents" screen
@@ -34,21 +33,21 @@ Scenario: parents alive and married - yes
 
 
 Scenario: parents alive and married - no
-	Given I answered "No" to "Were you an orphan" question
+	Given I answered No to Were you an orphan question
 	And I see the "parents still alive and married" question
 	When I answer "No"
 	Then I am redirected to the "Birth parents not married and alive" screen
-	And I see the "Divorced or widowed" question
+	And I see the "divorced/separated or widowed" question
 
 
 Scenario: Divorced or Separated
-	Given I answered "No" to "parents alive and married" question
-	And I see the "divorced or widowed" question
-	When I answer "Divorced"
-	Then I am redirected to the "Primary parents divorced" screen
-	And I see the "Primary parent remarried" question
+	Given I answered No to parents alive and married question
+	And I see the "divorced/separated or widowed" question
+	When I answer "Divorced/Separated"
+	Then I am redirected to the "Primary parent - parents divorced/separated" screen
+	And I see the "primary parent get remarried" question
 
-
+@not_started
 Scenario: Divorced not remarried
 	Given I answered "Divorced" to the divorced or widowed question
 	Then I see the "remarried?" question
@@ -64,7 +63,7 @@ Scenario: Divorced and remarried
 
 
 Scenario: Widowed
-	Given I answered "No" to parents alive and married question
+	Given I answered No to parents alive and married question
 	And I see the "divorced or widowed" question
 	When I answer "Widowed"
 	Then I am redirected to the "Widowed parent" screen

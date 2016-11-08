@@ -1,4 +1,6 @@
 
+require_relative 'parental_status'
+
 module Family_Tree
 
 	class << self
@@ -20,8 +22,16 @@ module Family_Tree
 				@node_id = 'node-578554002-3'
 			elsif screen_title == 'Living married birth parents' || response == 'married birth mother and birth father'
 				@node_id = 'node-578554002-4'
+			elsif screen_title == 'Birth parents not married and alive'
+				@node_id = 'node-578554002-5' 
 			end 
 		end
+
+
+
+
+
+
 
 		def open_family_tree_quesionnaire
 			$driver.navigate.to "http://zingtree.com/host.php?style=buttons&tree_id=578554002&persist_names=Restart&persist_node_ids=1"
@@ -42,40 +52,53 @@ module Family_Tree
 			#@screen_title = 'welcome'
 		end
 
+		def get_node_id_from_active_block
+			active_block = $driver.find_element(:xpath, "//div[contains(@id, 'node-578554002')][@style='display: block;']")
+			@node_id = active_block.id
+			puts @node_id
+		end
+
+
+		def click_response(response)
+			#binding.pry
+			#$driver.find_element(:xpath, "//div[@style='display: block;']//*/a[text()='#{response}']").click
+			active_block = "//div[not(contains(@style, 'none'))]"
+			$driver.find_element(:xpath, "#{active_block}//*/a[text()='#{response}']").click
+		end
+
+
 		def verify_question(question)
 			sleep 3
-			node_id(question)
-			node_id = @node_id
-			#puts "//div[@id='#{node_id}']//*/span[@id='node-question']"
-			orphan_q = $driver.find_element(:xpath, "//div[@id='#{@node_id}']//*/span[@id='node-question']")
+			orphan_q = $driver.find_element(:xpath, "//div[not(contains(@style, 'none'))]//*/span[@id='node-question' and contains(text(), '#{question}')]") 
+			puts orphan_q.text
 			fail "question not displayed" unless (orphan_q.text).include? "#{question}"
 		end
 
-		def click_response(answer)
-			sleep 3
-			#$driver.find_element(:xpath, "//a[contains(text(), '#{answer}')]").click
-			$driver.find_element(:xpath, "//a[contains(@onclick, '#{answer}')]").click
-			#response.click
-		end
-
+		
 		def verify_screen(screen_title)
 			sleep 3
-			node_id(screen_title)
-			#puts @node_id
-			#puts "//div[@id='#{@node_id}']//*/span[@id='node-title']"
-			heading = $driver.find_element(:xpath, "//div[@id='#{@node_id}']//*/span[@id='node-title']")
+			active_block = "//div[not(contains(@style, 'none'))]"
+			heading = $driver.find_element(:xpath, "#{active_block}//*/span[@id='node-title' and contains(text(), '#{screen_title}')]")
+			puts heading
 			puts heading.text
 			fail "title text incorrect" unless (heading.text).include? "#{screen_title}"
 		end
 
+
 		def verify_response(response)
 			sleep 3
-			node_id(response)
-			node_id = @node_id
-			puts node_id
-			answer = $driver.find_element(:xpath, "//div[@id='#{@node_id}']//*/div[@class='content-answer']")
+			answer = $driver.find_element(:xpath, "//div[not(contains(@style, 'none'))]//*/div[@class='content-answer']")
 			puts answer.text
 			fail "response text incorrect" unless (answer.text).include? "#{response}"
+		end
+
+
+		def get_node_id_by_screen(screen)
+			if screen == 'Welcome'
+				@node_id = 'node-578554002-1'
+			elsif screen == 'Parental status'
+				@node_id == Parental_Status.node_id
+			end
 		end
 	end
 end
