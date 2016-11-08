@@ -79,17 +79,15 @@ module Family_Tree
 			sleep 3
 			active_block = "//div[not(contains(@style, 'none'))]"
 			heading = $driver.find_element(:xpath, "#{active_block}//*/span[@id='node-title' and contains(text(), '#{screen_title}')]")
-			puts heading
-			puts heading.text
 			fail "title text incorrect" unless (heading.text).include? "#{screen_title}"
 		end
 
 
 		def verify_response(response)
-			sleep 3
-			answer = $driver.find_element(:xpath, "//div[not(contains(@style, 'none'))]//*/div[@class='content-answer']")
+			sleep 1
+			answer = $driver.find_element(:xpath, "//div[@id='nodes']/div[not(contains(@style, 'none'))]//*/div[@class='content-answer']")
 			puts answer.text
-			fail "response text incorrect" unless (answer.text).include? "#{response}"
+			fail "#{answer.text} response does not contain #{response}" unless answer.text.include? "#{response}"
 		end
 
 

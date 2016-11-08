@@ -46,15 +46,12 @@ end
 Given(/^I answered No to Were you an orphan question$/) do 
     steps %{
       Given I see the "Were you an orphan" question
-      When I answer "No" on the "welcome" screen
+      When I answer "No"
       Then I am redirected to the "Parental status" screen
   }
 end
 
 Given(/^I answered No to parents alive and married question$/) do 
-    #question = 'parents still alive and married'
-    #screen_title = 'Parental status'
-    #response = 'No'
     steps %{
       Given I answered No to Were you an orphan question
       And I see the "parents still alive and married" question
@@ -62,3 +59,13 @@ Given(/^I answered No to parents alive and married question$/) do
       And I am redirected to the "Birth parents not married and alive" screen
   }
 end
+
+Given (/^I answered Divorced to the divorced or widowed question$/) do
+  steps %{
+    Given I answered No to parents alive and married question
+    And I see the "divorced/separated or widowed" question
+    When I answer "Divorced/Separated"
+    Then I am redirected to the "Primary parent - parents divorced/separated" screen
+    }
+end
+

@@ -7,7 +7,7 @@ Background:
 	Given I open the family tree questionnaire
 	And I see the welcome message
 
-@wip
+
 Scenario: orphan or state dependent - yes
 	Given I see the "Were you an orphan" question
 	When I answer "Yes"
@@ -29,7 +29,7 @@ Scenario: parents alive and married - yes
 	And I see the "parents still alive and married" question
 	When I answer "Yes"
 	Then I am redirected to the "Living married birth parents" screen
-	And I see the "married birth mother and birth father" response
+	And I see the "married birth mother and birth father" response
 
 
 Scenario: parents alive and married - no
@@ -47,14 +47,14 @@ Scenario: Divorced or Separated
 	Then I am redirected to the "Primary parent - parents divorced/separated" screen
 	And I see the "primary parent get remarried" question
 
-@not_started
+
 Scenario: Divorced not remarried
-	Given I answered "Divorced" to the divorced or widowed question
+	Given I answered Divorced to the divorced or widowed question
 	Then I see the "remarried?" question
 	When I answer "No"
 	Then I am redirected to the "Primary parents divorced and single" response
 
-
+@wip
 Scenario: Divorced and remarried
 	Given I answered "Divorced" to the divorced or widowed question
 	Then I see the "remarried?" question
@@ -64,7 +64,7 @@ Scenario: Divorced and remarried
 
 Scenario: Widowed
 	Given I answered No to parents alive and married question
-	And I see the "divorced or widowed" question
+	And I see the "divorced/separated or widowed" question
 	When I answer "Widowed"
 	Then I am redirected to the "Widowed parent" screen
 	And I see the "Widowed parent remarried" question
