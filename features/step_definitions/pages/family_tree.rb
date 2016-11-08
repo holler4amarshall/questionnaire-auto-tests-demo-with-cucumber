@@ -25,12 +25,6 @@ module Family_Tree
 			#@screen_title = 'welcome'
 		end
 
-		#def get_node_id_from_active_block
-		#	active_block = $driver.find_element(:xpath, "//div[contains(@id, 'node-578554002')][@style='display: block;']")
-		#	@node_id = active_block.id
-		#	puts @node_id
-		#end
-
 
 		def click_response(response)
 			#binding.pry

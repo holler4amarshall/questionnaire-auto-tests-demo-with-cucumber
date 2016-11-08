@@ -30,14 +30,6 @@ Then(/^I see the "([^"]*)" response$/) do |response|
 end
 
 
-Given(/^I answered "([^"]*)" to the divorced or widowed question$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^I am redirected to the "([^"]*)" response$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 ## Compound steps
 
 Given(/^I answered No to Were you an orphan question$/) do 
