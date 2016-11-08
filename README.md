@@ -30,7 +30,8 @@ The tests do not cover: navigation, errors, server-side testing, web-service tes
 ### Exploratory tests: 
 Exploratory tests could cover the following additional items:   
 
-* Manipulate URL directly to try to access questions (views/screens) without answering the pre-requisite questions
+* Manipulate URL directly to access questions (views/screens) without answering the pre-requisite questions
+* Manipulate URL to test the various parameters (tree ids, styles, persistent node id etc)
 * Test navigation buttons: Back, Reset, Header, Footer etc. 
 * Server-side testing: use a proxy tool or a browser add on to manipulate the responses being sent to the server to ensure that an error is returned if non valid responses are entered. (NOTE: for this type of form, this type of testing may not be required, unless the data were very important, such as a census form etc)
 * Cross platform/browser tests (mobile, pc, mac, chrome, firefox, safari etc)
