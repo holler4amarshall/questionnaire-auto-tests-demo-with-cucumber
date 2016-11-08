@@ -62,7 +62,7 @@ module Family_Tree
 		def click_response(response)
 			#binding.pry
 			#$driver.find_element(:xpath, "//div[@style='display: block;']//*/a[text()='#{response}']").click
-			active_block = "//div[not(contains(@style, 'none'))]"
+			active_block = "//div[@id='nodes']/div[not(contains(@style, 'none'))]"
 			$driver.find_element(:xpath, "#{active_block}//*/a[text()='#{response}']").click
 		end
 
